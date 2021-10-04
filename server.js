@@ -4,10 +4,11 @@ require('dotenv').config()
 //Dependencies
 //___________________
 const express = require('express');
-const methodOverride = require('method-override');
-const mongoose = require ('mongoose');
 const app = express();
-const db = mongoose.connection;
+const session = require('express-session');
+const mongoose = require('mongoose');
+const methodOverride = require('method-override');
+
 //___________________
 //Port
 //___________________
@@ -27,6 +28,7 @@ mongoose.connect(MONGODB_URI , { useNewUrlParser: true, useUnifiedTopology: true
 );
 
 // Error / success
+const db = mongoose.connection;
 db.on('error', (err) => console.log(err.message + ' is mongod not running?'));
 db.on('connected', () => console.log('mongod connected: ', MONGODB_URI));
 db.on('disconnected', () => console.log('mongod disconnected'));
@@ -45,13 +47,34 @@ app.use(express.json());// returns middleware that only parses JSON - may or may
 //use method override
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 
+app.use(
+  session({
+      secret: process.env.SECRET,
+      resave: false,
+      saveUninitialized: false
+  })
+);
 
 //___________________
 // Routes
 //___________________
 //localhost:3000
-app.get('/' , (req, res) => {
-  res.send('Hello World!');
+const userController = require('./controllers/users');
+app.use('/users', userController);
+
+const sessionsController = require('./controllers/sessions');
+app.use('/sessions', sessionsController);
+
+app.get('/', (req, res) => {
+	if (req.session.currentUser) {
+		res.render('dashboard.ejs', {
+			currentUser: req.session.currentUser
+		});
+	} else {
+		res.render('index.ejs', {
+			currentUser: req.session.currentUser
+		});
+	}
 });
 
 //___________________
