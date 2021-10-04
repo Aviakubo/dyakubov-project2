@@ -8,8 +8,19 @@ const userSchema = Schema({
   password: { type: String, required: true }
 });
 
-// User Model
-const User = mongoose.model('User', userSchema);
+// Stats Schema
+const statsSchema = Schema({
+    name: { type: String, required: true},
+    height: { type: Number, required: true},
+    weight: { type: Number, required: true},
+    age: { type: Number, required: true},
+    gender: { type: String, required: true},
+})
 
-// Export User Model
+// User & Stats Model
+const User = mongoose.model('User', userSchema);
+const Stats = mongoose.model('Stats', statsSchema);
+
+// Export Models
 module.exports = User;
+module.exports = Stats;
