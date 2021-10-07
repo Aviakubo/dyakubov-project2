@@ -6,7 +6,7 @@ const Inventory = require('../models/inventory.js');
 // ======== ROUTES ========
 
 // Index 
-inventoryRouter.get('/', (req, res) =>{
+inventoryRouter.get('/inventory', (req, res) =>{
     // let qty =  - parseInt(store.qty)
     Inventory.find({}, (error, allItems) =>{
         res.render('index.ejs', {
