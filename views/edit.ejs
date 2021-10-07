@@ -12,13 +12,13 @@
 	</head>
 	<body>
 		<nav>
-			<a href="/inventory">Back to Main Store</a>
+			<a href="/inventory">Back to Main</a>
 		</nav>
     <form action="/inventory/<%=item._id%>?_method=PUT" method="POST">
-		Name: <input type="text" name="name" value="<%=item.name%>">
-        <input type="image url" name="img" value="<%=item.img%>">
+		Name: <input type="text" name="name" value="<%=item.name%>"><br>
+        <input type="image url" name="img" value="<%=item.img%>"><br>
         Description: <input type="text" name="description" value="<%= item.description%>">
-		<br />
+		<br>
         <input type="submit" value="Submit Changes">
     </form>
 	</body>

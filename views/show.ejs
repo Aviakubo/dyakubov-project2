@@ -12,14 +12,14 @@
 	</head>
 	<body>
 		<nav>
-			<a href="/inventory">Back to Main Store</a>
-            <a href="/inventory/<%=item._id%>/edit">Edit Product</a>
+			<a href="/inventory">Back to Main</a>
+            
 		</nav>
 		<h1><%=item.name %></h1>
 		<img id="pic" src="<%= item.img%>" alt="item.name"><br>
         Description: <%= item.description%>
-		<br />
-        
+		<br>
+        <a href="/inventory/<%=item._id%>/edit">Edit Product</a>
     <!-- DELETE -->
     <form action="/inventory/<%=item._id%>?_method=DELETE" method="POST">
         <input type="submit" value="Remove Item">
