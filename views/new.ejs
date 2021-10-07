@@ -9,14 +9,12 @@
 		<title>Inventory List</title>
 	</head>
 	<body>
-		<h1>Inventory List</h1>
-        <ul>
-			<% item.forEach(inventory => { %>
-			<li><a id="list" href="/inventory/<%=inventory._id; %>"><%=inventory.name; %></a></li>
-			<% }) %>
-		</ul>
-        <nav>
-            <a id="add" href="/inventory/new">Add a New Product</a>
-        </nav>
+		<h1>New Item</h1>
+		<form action="/inventory" method="POST">
+			Name: <input type="text" name="name" /><br />
+            Description: <input type="text" name="description"> <br>
+			Image: <input type="image url" name="img" /><br />
+			<input type="submit" name="" value="Add Item" />
+		</form>
 	</body>
 </html>
