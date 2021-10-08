@@ -9,7 +9,7 @@ The purpose of this app is for the magician to keep track of props
 /*-----------------------------*/
 
 Wireframing:
-![Wireframes](https://imgur.com/a/LKp6CZV)
+![Wireframes](https://i.imgur.com/0KnyYKP.png)
 
 Technologies used:
 html, css, meen stack
@@ -22,4 +22,6 @@ Wishlist
 /*-----------------------------*/
 
 Screenshots
-![Screenshots](https://imgur.com/mnY7yIF)
+![Screenshots](https://i.imgur.com/mnY7yIF.png)
+![Screenshots](https://i.imgur.com/8RlOFW6.png)
+![Screenshots](https://i.imgur.com/vGxU9g7.png)
